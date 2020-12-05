@@ -1,0 +1,54 @@
+interface PasswordModel {
+  min: number;
+  max: number;
+  char: string;
+  password: string;
+}
+
+const mapInputToPasswordModel = (row: string[]): PasswordModel[] => {
+  return row.map((r) => {
+    const [rule, password] = r.split(":");
+    const [minAndMax, char] = rule.split(" ");
+    const [min, max] = minAndMax.split("-");
+
+    return { min: +min, max: +max, char, password };
+  });
+};
+
+const validatePassword = (passwordModel: PasswordModel): boolean => {
+  let occurancesOfChar = 0;
+
+  const chars = passwordModel.password.split("");
+  chars.forEach((c) => {
+    if (c === passwordModel.char) {
+      occurancesOfChar++;
+    }
+  });
+
+  return occurancesOfChar >= passwordModel.min &&
+    occurancesOfChar <= passwordModel.max;
+};
+
+const validatePasswords = (passwords: PasswordModel[]): number => {
+  let correctPasswords = 0;
+
+  passwords.forEach((p: PasswordModel) => {
+    if (validatePassword(p)) {
+      correctPasswords++;
+    }
+  });
+
+  return correctPasswords;
+};
+
+export const main = () => {
+  const input: string[] = Deno.readTextFileSync("./input.txt").split("\r\n");
+
+  const passwords: PasswordModel[] = mapInputToPasswordModel(input);
+
+  const correctPasswords: number = validatePasswords(passwords);
+
+  console.log(correctPasswords);
+};
+
+main();
