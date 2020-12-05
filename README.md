@@ -1,5 +1,5 @@
 # Advent of code 2020
 
-Written in Deno
+Deno and Typescript
 
 https://adventofcode.com/2020
