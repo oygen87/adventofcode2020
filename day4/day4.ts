@@ -1,4 +1,4 @@
-const mapInputToPassports = (input: string[]): string[] => {
+export const mapInputToPassports = (input: string[]): string[] => {
   const indexOfLastRow = input.length - 1;
 
   const formattedPassports: string[] = [];
@@ -8,10 +8,10 @@ const mapInputToPassports = (input: string[]): string[] => {
     if (row.length !== 0) {
       currentPassport += " " + row;
       if (i === indexOfLastRow) {
-        formattedPassports.push(currentPassport);
+        formattedPassports.push(currentPassport.trim());
       }
     } else {
-      formattedPassports.push(currentPassport);
+      formattedPassports.push(currentPassport.trim());
       currentPassport = "";
     }
   });
@@ -32,7 +32,7 @@ const validatePassports = (passports: string[]): number => {
   return numberOfValidPassports;
 };
 
-const validatePassport = (passport: string): boolean => {
+export const validatePassport = (passport: string): boolean => {
   if (!passport.includes("byr:")) {
     return false;
   }
