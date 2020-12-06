@@ -1,21 +1,21 @@
-interface PasswordModel {
+export interface PasswordModel {
   min: number;
   max: number;
   char: string;
   password: string;
 }
 
-const mapInputToPasswordModel = (row: string[]): PasswordModel[] => {
+export const mapInputToPasswordModel = (row: string[]): PasswordModel[] => {
   return row.map((r) => {
     const [rule, password] = r.split(":");
     const [minAndMax, char] = rule.split(" ");
     const [min, max] = minAndMax.split("-");
 
-    return { min: +min, max: +max, char, password };
+    return { min: +min, max: +max, char, password: password.trim() };
   });
 };
 
-const validatePassword = (passwordModel: PasswordModel): boolean => {
+export const validatePassword = (passwordModel: PasswordModel): boolean => {
   let occurancesOfChar = 0;
 
   const chars = passwordModel.password.split("");
@@ -29,7 +29,7 @@ const validatePassword = (passwordModel: PasswordModel): boolean => {
     occurancesOfChar <= passwordModel.max;
 };
 
-const validatePasswords = (passwords: PasswordModel[]): number => {
+export const validatePasswords = (passwords: PasswordModel[]): number => {
   let correctPasswords = 0;
 
   passwords.forEach((p: PasswordModel) => {
