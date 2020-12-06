@@ -31,7 +31,7 @@ export const main = () => {
 
   let max = 0;
 
-  data.forEach((el, i) => {
+  data.forEach(el => {
     const row = el.substring(0, 7);
     const col = el.substring(7, 10);
 
