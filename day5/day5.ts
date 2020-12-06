@@ -1,4 +1,4 @@
-const toBinaryString = (s: string) => {
+export const toBinaryString = (s: string) => {
   let binaryString = s.replaceAll("B", "1");
   binaryString = binaryString.replaceAll("F", "0");
   binaryString = binaryString.replaceAll("R", "1");
@@ -6,7 +6,7 @@ const toBinaryString = (s: string) => {
   return binaryString;
 };
 
-const mapBinaryStringToNumber = (row: string) => {
+export const mapBinaryStringToNumber = (row: string) => {
   let total = 0;
 
   row.split("").reverse().forEach((binary, index) => {
