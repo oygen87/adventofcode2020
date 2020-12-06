@@ -19,7 +19,7 @@ export const mapInputToPassports = (input: string[]): string[] => {
   return formattedPassports;
 };
 
-const validatePassports = (passports: string[]): number => {
+export const validatePassports = (passports: string[]): number => {
   let numberOfValidPassports = 0;
 
   passports.forEach((passport) => {

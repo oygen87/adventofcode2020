@@ -1,5 +1,10 @@
 import { assertEquals } from "https://deno.land/std@0.79.0/testing/asserts.ts";
-import { mapInputToPassports, validatePassport } from "./day4.ts";
+import {
+  mapInputToPassports,
+  validatePassport,
+  validatePassports,
+} from "./day4.ts";
+
 Deno.test("Should map raw input to passwords (group and split by newline)", () => {
   const input = [
     "byr:1971",
@@ -45,4 +50,15 @@ Deno.test("should validate passport", () => {
   const input3 = "ecl:grt iyr:2022 hcl:z hgt:192cm byr:2010";
   const result3 = validatePassport(input3);
   assertEquals(result3, false);
+});
+
+Deno.test("should validate passports", () => {
+  const input = [
+    "byr:1971 eyr:2039 hgt:172in pid:170cm hcl:17106b iyr:2012 ecl:gry cid:339",
+    "hgt:161cm eyr:2027 ecl:grn iyr:2011 hcl:#a97842 byr:1977 pid:910468396",
+    "ecl:grt iyr:2022 hcl:z hgt:192cm byr:2010",
+  ];
+
+  const result = validatePassports(input);
+  assertEquals(result, 2);
 });
