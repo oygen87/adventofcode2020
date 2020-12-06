@@ -1,3 +1,5 @@
+import * as path from "https://deno.land/std@0.79.0/path/mod.ts";
+
 export const toBinaryString = (s: string) => {
   let binaryString = s.replaceAll("B", "1");
   binaryString = binaryString.replaceAll("F", "0");
@@ -25,13 +27,15 @@ export const mapBinaryStringToNumber = (row: string) => {
 };
 
 export const main = () => {
-  const input: string[] = Deno.readTextFileSync("./input.txt").split("\r\n");
+  const input: string[] = Deno.readTextFileSync(
+    path.fromFileUrl(new URL("input.txt", import.meta.url)),
+  ).split("\r\n");
 
   const data = input.map(toBinaryString);
 
   let max = 0;
 
-  data.forEach(el => {
+  data.forEach((el) => {
     const row = el.substring(0, 7);
     const col = el.substring(7, 10);
 
@@ -47,5 +51,3 @@ export const main = () => {
 
   console.log(max);
 };
-
-main();

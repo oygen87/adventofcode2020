@@ -1,5 +1,9 @@
+import * as path from "https://deno.land/std@0.79.0/path/mod.ts";
+
 export const main = () => {
-  const input: string[] = Deno.readTextFileSync("./input.txt").split("\r\n");
+  const input: string[] = Deno.readTextFileSync(
+    path.fromFileUrl(new URL("input.txt", import.meta.url)),
+  ).split("\r\n");
 
   let posX = 0;
   let hits = 0;
@@ -24,5 +28,3 @@ export const main = () => {
 
   console.log(hits);
 };
-
-main();

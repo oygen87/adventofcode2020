@@ -1,3 +1,5 @@
+import * as path from "https://deno.land/std@0.79.0/path/mod.ts";
+
 export const mapInputToPassports = (input: string[]): string[] => {
   const indexOfLastRow = input.length - 1;
 
@@ -58,7 +60,9 @@ export const validatePassport = (passport: string): boolean => {
 };
 
 export const main = () => {
-  const input: string[] = Deno.readTextFileSync("./input.txt").split("\r\n");
+  const input: string[] = Deno.readTextFileSync(
+    path.fromFileUrl(new URL("input.txt", import.meta.url)),
+  ).split("\r\n");
 
   const passports = mapInputToPassports(input);
 
@@ -66,5 +70,3 @@ export const main = () => {
 
   console.log(numberOfValidPassports);
 };
-
-main();
