@@ -19,8 +19,12 @@ export const groupAnswers = (input: string[]): string[] => {
   return groups;
 };
 
+interface CharCountMap {
+  [char: string]: number;
+}
+
 export const toAnsweredQuestions = (answers: string): number => {
-  const map: { [char: string]: number } = {};
+  const map: CharCountMap = {};
   answers.split("").forEach((c) => map[c] = map[c] ? 1 : map[c]++);
   return Object.keys(map).length;
 };
