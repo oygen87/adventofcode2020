@@ -12,12 +12,12 @@ Deno.test("Should map raw input to InstructionModel", () => {
   ];
   const result = input.map(toInstructionModel);
   const expected = [
-    { id: "0jmp +22", command: "jmp", value: 22 },
-    { id: "1jmp -44", command: "jmp", value: -44 },
-    { id: "2acc +100", command: "acc", value: 100 },
-    { id: "3acc -50", command: "acc", value: -50 },
-    { id: "4nop +99", command: "nop", value: 99 },
-    { id: "5nop -33", command: "nop", value: -33 },
+    { id: "0jmp +22", command: "jmp", value: 22, isExecuted: false },
+    { id: "1jmp -44", command: "jmp", value: -44, isExecuted: false },
+    { id: "2acc +100", command: "acc", value: 100, isExecuted: false },
+    { id: "3acc -50", command: "acc", value: -50, isExecuted: false },
+    { id: "4nop +99", command: "nop", value: 99, isExecuted: false },
+    { id: "5nop -33", command: "nop", value: -33, isExecuted: false },
   ];
   assertEquals(result, expected);
 });

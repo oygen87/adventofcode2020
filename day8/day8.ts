@@ -6,6 +6,7 @@ interface InstructionModel {
   id: string;
   command: Command;
   value: number;
+  isExecuted: boolean;
 }
 
 export const toInstructionModel = (el: string, index: number) => {
@@ -16,20 +17,19 @@ export const toInstructionModel = (el: string, index: number) => {
     id: index + el,
     command,
     value,
+    isExecuted: false
   };
 };
 
 export const runProgram = (instructions: InstructionModel[]): number => {
-  const previousCommands: string[] = [];
+  const previousCommands: {[id: string]: boolean} = {};
   let acc = 0;
   let position = 0;
 
   while (true) {
     const instruction: InstructionModel = instructions[position];
 
-    if (!previousCommands.includes(instruction.id)) {
-      previousCommands.push(instruction.id);
-    } else {
+    if (instruction.isExecuted) {
       return acc;
     }
 
@@ -41,6 +41,8 @@ export const runProgram = (instructions: InstructionModel[]): number => {
     } else if (instruction.command === "nop") {
       position++;
     }
+
+    instruction.isExecuted = true;
   }
 };
 
