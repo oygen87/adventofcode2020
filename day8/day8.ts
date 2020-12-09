@@ -17,12 +17,12 @@ export const toInstructionModel = (el: string, index: number) => {
     id: index + el,
     command,
     value,
-    isExecuted: false
+    isExecuted: false,
   };
 };
 
 export const runProgram = (instructions: InstructionModel[]): number => {
-  const previousCommands: {[id: string]: boolean} = {};
+  const previousCommands: { [id: string]: boolean } = {};
   let acc = 0;
   let position = 0;
 
@@ -33,13 +33,16 @@ export const runProgram = (instructions: InstructionModel[]): number => {
       return acc;
     }
 
-    if (instruction.command === "acc") {
-      acc += instruction.value;
-      position++;
-    } else if (instruction.command === "jmp") {
-      position += instruction.value;
-    } else if (instruction.command === "nop") {
-      position++;
+    switch (instruction.command) {
+      case "acc":
+        acc += instruction.value;
+        position++;
+        break;
+      case "jmp":
+        position += instruction.value;
+        break;
+      case "nop":
+        position++;
     }
 
     instruction.isExecuted = true;
