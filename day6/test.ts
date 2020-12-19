@@ -1,5 +1,5 @@
 import { assertEquals } from "https://deno.land/std@0.79.0/testing/asserts.ts";
-import { groupAnswers, toAnsweredQuestions } from "./day6.ts";
+import { groupAnswers, main, toAnsweredQuestions } from "./day6.ts";
 
 Deno.test("Should group answers into one string separated by empty line", () => {
   const input = [
@@ -30,4 +30,8 @@ Deno.test("Should map answer string to number of uniquely answered questions", (
   const result = input.map(toAnsweredQuestions);
   const expected = [3, 6, 2];
   assertEquals(result, expected);
+});
+
+Deno.test("day6 result", () => {
+  assertEquals(main(), 6273);
 });

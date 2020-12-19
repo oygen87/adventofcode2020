@@ -59,4 +59,6 @@ export const main = () => {
   const result = runProgram(instructions);
 
   console.log(result);
+
+  return result;
 };

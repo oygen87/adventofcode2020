@@ -31,4 +31,6 @@ export const main = () => {
   const result = findMatchingPairFromList(numbers, 25);
 
   console.log(result);
+
+  return result;
 };

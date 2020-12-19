@@ -40,7 +40,9 @@ export const main = () => {
 
   const answers = groups.map(toAnsweredQuestions);
 
-  const total = answers.reduce((acc, curr) => acc + curr, 0);
+  const result = answers.reduce((acc, curr) => acc + curr, 0);
 
-  console.log(total);
+  console.log(result);
+
+  return result;
 };

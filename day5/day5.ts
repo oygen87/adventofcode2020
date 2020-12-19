@@ -50,4 +50,6 @@ export const main = () => {
   });
 
   console.log(max);
+
+  return max;
 };

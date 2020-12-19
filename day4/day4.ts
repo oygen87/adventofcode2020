@@ -69,4 +69,6 @@ export const main = () => {
   const numberOfValidPassports = validatePassports(passports);
 
   console.log(numberOfValidPassports);
+
+  return numberOfValidPassports;
 };

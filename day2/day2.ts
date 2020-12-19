@@ -53,4 +53,6 @@ export const main = () => {
   const correctPasswords: number = validatePasswords(passwords);
 
   console.log(correctPasswords);
+
+  return correctPasswords;
 };

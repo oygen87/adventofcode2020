@@ -1,5 +1,9 @@
 import { assertEquals } from "https://deno.land/std@0.79.0/testing/asserts.ts";
-import { findAllDirectParentsForColor, removeParentFromList } from "./day7.ts";
+import {
+  findAllDirectParentsForColor,
+  main,
+  removeParentFromList,
+} from "./day7.ts";
 
 Deno.test("Should remove parent color from list", () => {
   const input = [
@@ -25,4 +29,8 @@ Deno.test("Should find all direct parents for colors", () => {
   const result = findAllDirectParentsForColor("striped gold", input);
   const expected = ["striped orange", "shiny silver"];
   assertEquals(result, expected);
+});
+
+Deno.test("day7 result", () => {
+  assertEquals(main(), 224);
 });

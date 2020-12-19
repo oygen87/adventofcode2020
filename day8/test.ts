@@ -1,5 +1,5 @@
 import { assertEquals } from "https://deno.land/std@0.79.0/testing/asserts.ts";
-import { runProgram, toInstructionModel } from "./day8.ts";
+import { main, runProgram, toInstructionModel } from "./day8.ts";
 
 Deno.test("Should map raw input to InstructionModel", () => {
   const input = [
@@ -38,4 +38,8 @@ Deno.test("Should run program and return acc", () => {
   const expected = 49;
 
   assertEquals(result, expected);
+});
+
+Deno.test("day8 result", () => {
+  assertEquals(main(), 1394);
 });

@@ -1,5 +1,5 @@
 import { assertEquals } from "https://deno.land/std@0.79.0/testing/asserts.ts";
-import { mapBinaryStringToNumber, toBinaryString } from "./day5.ts";
+import { main, mapBinaryStringToNumber, toBinaryString } from "./day5.ts";
 
 Deno.test("Should map input to binary string", () => {
   const input1 = "FBFFFFB";
@@ -53,4 +53,8 @@ Deno.test("Should map binary string to number", () => {
   const result6 = mapBinaryStringToNumber(input6);
   const expected6 = 0;
   assertEquals(result6, expected6);
+});
+
+Deno.test("day5 result", () => {
+  assertEquals(main(), 901);
 });

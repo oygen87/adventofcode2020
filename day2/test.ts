@@ -1,5 +1,6 @@
 import { assertEquals } from "https://deno.land/std@0.79.0/testing/asserts.ts";
 import {
+  main,
   mapInputToPasswordModel,
   validatePassword,
   validatePasswords,
@@ -59,4 +60,8 @@ Deno.test("Should validate password", () => {
 
   const result = validatePasswords(input);
   assertEquals(result, 1);
+});
+
+Deno.test("day2 result", () => {
+  assertEquals(main(), 607);
 });

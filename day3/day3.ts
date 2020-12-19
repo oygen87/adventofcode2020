@@ -27,4 +27,6 @@ export const main = () => {
   });
 
   console.log(hits);
+
+  return hits;
 };

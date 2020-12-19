@@ -1,5 +1,5 @@
 import { assertEquals } from "https://deno.land/std@0.79.0/testing/asserts.ts";
-import { findMatchingPairOfSum } from "./day1.ts";
+import { findMatchingPairOfSum, main } from "./day1.ts";
 
 Deno.test("Should find matching pair from list and return success", () => {
   const input = [1, 5, 10, 25, 75, 200, 210];
@@ -22,4 +22,8 @@ Deno.test("Should return properties with value of zero and success false when no
   assertEquals(result.firstNum, 0);
   assertEquals(result.secondNum, 0);
   assertEquals(result.success, false);
+});
+
+Deno.test("day1 result", () => {
+  assertEquals(main(), 751776);
 });

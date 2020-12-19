@@ -20,13 +20,14 @@ export const main = () => {
   const input: string[] = Deno.readTextFileSync(
     path.fromFileUrl(new URL("input.txt", import.meta.url)),
   ).split("\r\n");
-  
+
   const list: number[] = input.map((el) => Number(el));
 
-  const { firstNum, secondNum, success } = findMatchingPairOfSum(list, 2020);
+  const { firstNum, secondNum } = findMatchingPairOfSum(list, 2020);
 
-  if (success) {
-    const result = firstNum * secondNum;
-    console.log(result);
-  }
+  const result = firstNum * secondNum;
+
+  console.log(result);
+
+  return result;
 };

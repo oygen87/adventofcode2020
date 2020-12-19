@@ -60,5 +60,9 @@ export const main = () => {
     }
   }
 
+  const result = totalColors.length;
+
   console.log(totalColors.length);
+
+  return result;
 };
