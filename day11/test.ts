@@ -1,6 +1,7 @@
 import { assertEquals } from "https://deno.land/std@0.79.0/testing/asserts.ts";
 import {
   copyTable,
+  countSeatTypeInTable,
   getAdjacent,
   hasAtLeast,
   hasExact,
@@ -8,6 +9,7 @@ import {
   Seat,
   seatIsEmpty,
   seatIsOccupied,
+  SeatType,
   Table,
 } from "./day11.ts";
 
@@ -110,6 +112,23 @@ Deno.test("should return copy of table", () => {
 
   const result = copyTable(input);
   assertEquals(input, result);
+});
+
+Deno.test("should count number of seat types in a table", () => {
+  const table: Table = [
+    [".", ".", "#"],
+    ["#", "#", "#"],
+    ["L", "L", "L"],
+  ];
+
+  const result1 = countSeatTypeInTable("L", table);
+  assertEquals(result1, 3);
+
+  const result2 = countSeatTypeInTable("#", table);
+  assertEquals(result2, 4);
+
+  const result3 = countSeatTypeInTable(".", table);
+  assertEquals(result3, 2);
 });
 
 Deno.test("day11 result", () => {

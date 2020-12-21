@@ -139,7 +139,7 @@ export const main = () => {
   }
 
   const result = countSeatTypeInTable(SeatType.OCCUPIED, table);
-  
+
   console.log(result);
 
   return result;
