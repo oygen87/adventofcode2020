@@ -138,7 +138,9 @@ export const main = () => {
     }
   }
 
-  console.log(countSeatTypeInTable(SeatType.OCCUPIED, table));
+  const result = countSeatTypeInTable(SeatType.OCCUPIED, table);
+  
+  console.log(result);
 
-  return countSeatTypeInTable(SeatType.OCCUPIED, table);
+  return result;
 };
