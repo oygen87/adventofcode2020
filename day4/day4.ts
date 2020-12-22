@@ -62,7 +62,7 @@ export const validatePassport = (passport: string): boolean => {
 export const main = () => {
   const input: string[] = Deno.readTextFileSync(
     path.fromFileUrl(new URL("input.txt", import.meta.url)),
-  ).split("\r\n");
+  ).split(/\r?\n/);
 
   const passports = mapInputToPassports(input);
 

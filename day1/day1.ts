@@ -19,7 +19,7 @@ export const findMatchingPairOfSum = (
 export const main = () => {
   const input: string[] = Deno.readTextFileSync(
     path.fromFileUrl(new URL("input.txt", import.meta.url)),
-  ).split("\r\n");
+  ).split(/\r?\n/);
 
   const list: number[] = input.map((el) => Number(el));
 

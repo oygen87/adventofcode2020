@@ -89,7 +89,7 @@ export const countSeatTypeInTable = (seatType: Seat, table: Table): number => {
 export const main = () => {
   const input: string[] = Deno.readTextFileSync(
     path.fromFileUrl(new URL("input.txt", import.meta.url)),
-  ).split("\r\n");
+  ).split(/\r?\n/);
 
   let table = input.map((el) => el.split("")) as Table;
 

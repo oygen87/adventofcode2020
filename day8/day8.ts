@@ -52,7 +52,7 @@ export const runProgram = (instructions: InstructionModel[]): number => {
 export const main = () => {
   const input: string[] = Deno.readTextFileSync(
     path.fromFileUrl(new URL("input.txt", import.meta.url)),
-  ).split("\r\n");
+  ).split(/\r?\n/);
 
   const instructions: InstructionModel[] = input.map(toInstructionModel);
 

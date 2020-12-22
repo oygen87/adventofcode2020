@@ -24,7 +24,7 @@ export const findMatchingPairFromList = (
 export const main = () => {
   const input: string[] = Deno.readTextFileSync(
     path.fromFileUrl(new URL("input.txt", import.meta.url)),
-  ).split("\r\n");
+  ).split(/\r?\n/);
 
   const numbers: number[] = input.map((s) => Number(s));
 

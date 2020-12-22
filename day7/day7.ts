@@ -18,7 +18,7 @@ export const findAllDirectParentsForColor = (
 export const main = () => {
   const input: string[] = Deno.readTextFileSync(
     path.fromFileUrl(new URL("input.txt", import.meta.url)),
-  ).split("\r\n");
+  ).split(/\r?\n/);
 
   let listWithoutFoundColors: string[] = removeParentFromList(
     "shiny gold",
